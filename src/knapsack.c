@@ -91,8 +91,9 @@ void partially_greed(knapsack_t* knapsack, item_list_t* item_list){
 void viable_random(knapsack_t* knapsack, item_list_t* item_list){
 
 	srand(time(NULL));
+	int times = item_list->size;
 
-	while (knapsack->weight < knapsack->max_cap && item_list->size > 0){
+	for (int i = 0; i < times; i++){
 
 		int pick = rand() % item_list->size;
 
@@ -106,13 +107,16 @@ void viable_random(knapsack_t* knapsack, item_list_t* item_list){
 void random_without_check(knapsack_t* knapsack, item_list_t* item_list){
 
 	srand(time(NULL));
+	int times = item_list->size;
 
-	while (knapsack->weight < knapsack->max_cap && item_list->size > 0){
+	for (int i = 0; i < times; i++){
 
 		int pick = rand() % item_list->size;
 
 		item_t* item = get_by_index(pick, item_list);
 
-		store_item(item, knapsack);
+		int rand_coin = rand() % 2;
+		if (rand_coin)
+			store_item(item, knapsack);
 	}
 }
