@@ -2,7 +2,7 @@
 # 1) Change the exec name.
 
 # Executable
-EXEC = knapsack_greedy
+EXEC = knapsack_problem
 
 # Binary
 BIN = ./bin/$(EXEC)
